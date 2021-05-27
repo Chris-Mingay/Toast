@@ -15,8 +15,6 @@ namespace Blazored.Toast.Services
         void ShowToast(ToastOptions options);
 
         void ShowToast(string Message, string Heading = null);
-
-        void ShowToast(RenderFragment Message, string Heading = null);
         
      }
 }

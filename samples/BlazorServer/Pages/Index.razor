@@ -96,11 +96,6 @@
         Console.WriteLine($"Toast clicked at {DateTime.Now.ToLongTimeString()}");
     }
 
-    private RenderFragment FragmentFromString(string Input) => builder =>
-    {
-        builder.AddContent(1, Input);
-    };
-
     private void AddModal()
     {
 
@@ -108,7 +103,7 @@
         {
             Level = Level,
             Position = Position,
-            Message = FragmentFromString(Message),
+            Message = Message,
             Heading = Heading,
             Timeout = Timeout
         };
@@ -134,7 +129,7 @@
         {
             Level = level,
             Position = position,
-            Message = FragmentFromString(message),
+            Message = message,
             Heading = heading,
             Timeout = timeout
         };

@@ -20,28 +20,16 @@ namespace Blazored.Toast.Services
         public void ShowToast(string Message, string Heading = null)
         {
             var options = ToastOptions.Defaults.Copy();
-            options.Message = FragmentFromString(Message);
-            options.Heading = Heading;
-            _Invoke(options);
-        }
-
-        public void ShowToast(RenderFragment Message, string Heading = null)
-        {
-            var options = ToastOptions.Defaults.Copy();
             options.Message = Message;
             options.Heading = Heading;
             _Invoke(options);
         }
 
+
         private void _Invoke(ToastOptions options)
         {
             OnShow?.Invoke(options);
         }
-
-        private RenderFragment FragmentFromString(string Input) => builder =>
-        {
-            builder.AddContent(1, Input);
-        };
 
     }
 }

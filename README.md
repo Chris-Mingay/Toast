@@ -1,23 +1,30 @@
-# Blazored Toast
-This is a JavaScript free toast implementation for [Blazor](https://blazor.net) and Razor Components applications. It supports icons that are either specified by class name (such as fontawesome) or by a specified element (Material Design).
+# Blazor Tailwind Toast
+This is a JavaScript free toast implementation for [Blazor](https://blazor.net) and Razor Components applications using [tailwindcss](https://tailwindcss.com/) for styling.
 
-![Build & Test Main](https://github.com/Blazored/Toast/workflows/Build%20&%20Test%20Main/badge.svg)
+This project is a fork of [Blazored.Toast](https://github.com/Blazored/Toast) with some minor differences.
 
-![Nuget](https://img.shields.io/nuget/v/blazored.toast.svg)
+## Differences from Blazored Toast
 
-![Screenshot of component in action](screenshot.png)
+- Uses tailwind for styling rules
+- Removed icons
+- Removed progress bar
+- Ability to select which position a toast instance appears on screen.
+- Hover pauses the timeout
+- Toast content has to be a string (for now), whereas Blazored Toast lets you send a RenderFragment
+
 
 ## Getting Setup
-You can install the package via the NuGet package manager just search for *Blazored.Toast*. You can also install via powershell using the following command.
+
+~~You can install the package via the NuGet package manager just search for *Blazored.Toast*. You can also install via powershell using the following command.~~
 
 ```powershell
-Install-Package Blazored.Toast
+Install-Package NotYet.Toast
 ```
 
-Or via the dotnet CLI.
+~~Or via the dotnet CLI~~
 
 ```bash
-dotnet add package Blazored.Toast
+dotnet add package NotYet.Toast
 ```
 
 ### 1. Register Services
@@ -46,85 +53,35 @@ Add the following to your *_Imports.razor*
 ```csharp
 @using Blazored.Toast
 @using Blazored.Toast.Services
+@using Blazored.Toast.Enums
 ```
 
 ### 3. Register and Configure Toasts Component
 Add the `<BlazoredToasts />` tag into your applications *MainLayout.razor*.
 
-Toasts are configured using parameters on the `<BlazoredToasts />` component. The following options are available.
-
-- InfoClass
-- InfoIcon
-- SuccessClass
-- SuccessIcon
-- WarningClass
-- WarningIcon
-- ErrorClass
-- ErrorIcon
-- IconType (Default: IconType.FontAwesome)
-- Position (Default: ToastPosition.TopRight)
-- Timeout (Default: 5)
-
-By default, you don't need to provide any settings everything will just work. But if you want to add icons to toasts or override the default styling then you can use the options above to do that. 
-
-For example, to add an icon from Font Awesome to all success toasts you can do the following.
-
-```html
-<BlazoredToasts SuccessIcon="fa fa-thumbs-up"/>
-```
-
-Setting the position also requires a reference to `Blazored.Toast.Configuration`, for example:
-
-```html
-@using Blazored.Toast.Configuration
-
-<BlazoredToasts Position="ToastPosition.BottomRight"
-                Timeout="10"
-                IconType="IconType.FontAwesome"
-                SuccessClass="success-toast-override"
-                SuccessIcon="fa fa-thumbs-up"
-                ErrorIcon="fa fa-bug" />
-```
-The example above is from the [client side samples](https://github.com/Blazored/Toast/tree/master/samples).
-
-```html
-<BlazoredToasts Position="ToastPosition.BottomRight"
-                Timeout="10"
-                IconType="IconType.Material"
-                ErrorIcon="error_outline"
-                InfoIcon="school"
-                SuccessIcon="done_outline"
-                WarningIcon="warning" />
-```
-The example above is from the [server side samples](https://github.com/Blazored/Toast/tree/master/samples) and demonstrates the use of Material Design icons.
-
 
 ### 4. Add reference to style sheet(s)
 Add the following line to the `head` tag of your `_Host.cshtml` (Blazor Server app) or `index.html` (Blazor WebAssembly).
-The blazored-toast.css includes the open-iconic-bootstrap.min.css.
-
-We ship both minified and unminified CSS.
 
 For minifed use:
 
 ```
-<link href="_content/Blazored.Toast/blazored-toast.min.css" rel="stylesheet" />
+<link href="_content/Blazored.Toast/app.min.css" rel="stylesheet" />
 ```
 
-For unminifed use:
-```
-<link href="_content/Blazored.Toast/blazored-toast.css" rel="stylesheet" />
-```
-
-Presumably, if you want to use the Material Icons your project already includes some form of the icons. If not see [Material Design Icons](https://dev.materialdesignicons.com/getting-started/webfont) for the available alternatives.
+The stylesheet `app.min.css` contains only the tailwind styles defined in the build process. It is not required that you reference tailwind in your host project, all styles are self contained.
 
 ## Usage
-In order to show a toast you have to inject the `IToastService` into the component or service you want to trigger a toast. You can then call one of the following methods depending on what kind of toast you want to display, passing in a message and an optional heading.
 
-- `ShowInfo`
-- `ShowSuccess`
-- `ShowWarning`
-- `ShowError`
+Toast instances are generated using the `ToastOptions` class which has the following properties:
+
+- Level, a ToastLevel enum (Info, Success, Error, Warning). Defaults to Info.
+- Position, a ToastPosition enum (TopLeft, TopCenter,TopRight,BottomLeft,BottomCenter,BottomRight). Defaults to TopRight.
+- Heading, an optional heading string.
+- Message, a string or render fragment of the body of the message.
+- Timeout, how long the toast should last in milliseconds. Set to 0 to keep in place until closed. Defaults to 5000 (5 seconds).
+- OnClick, an optional Action that can be used to run functions upon clicking the included action button.
+- ButtonLabel, the label text of the OnClick action.
 
 
 ```html
@@ -133,32 +90,28 @@ In order to show a toast you have to inject the `IToastService` into the compone
 
 <h1>Toast Demo</h1>
 
-To show a toast just click one of the buttons below.
+<button type="button" @onclick="() => toastService.ShowToast("Message","Heading")">
+    Inline message and heading
+</button>
 
-<button class="btn btn-info" @onclick="@(() => toastService.ShowInfo("I'm an INFO message"))">Info Toast</button>
+<button type="button" @onclick="() => toastService.ShowToast(new ToastOption{
+    Message = "Toast option based message",
+    Heading = null,
+    Timeout = 10000,
+    Level = ToastLevel.Error,
+    Position = ToastPosition.BottomCenter
+})">
+    ToastOption based
+</button>
+
+
+<button class="btn btn-info" @onclick="@(() => toastService.ShowToast("Standard toast","With heading"))">Standard with heading</button>
+
 <button class="btn btn-success" @onclick="@(() => toastService.ShowSuccess("I'm a SUCCESS message with a custom title", "Congratulations!"))">Success Toast</button>
 <button class="btn btn-warning" @onclick="@(() => toastService.ShowWarning("I'm a WARNING message"))">Warning Toast</button>
 <button class="btn btn-danger" @onclick="@(() => toastService.ShowError("I'm an ERROR message"))">Error Toast</button>
 ```
-Full examples for client and server-side Blazor are included in the [samples](https://github.com/Blazored/Toast/tree/master/samples).
-
-### Show Progress Bar
-You can display a progress bar which gives a visual indicator of the time remaining before the toast will disappear. In order to show the progress bar set the `ShowProgressBar` parameter to true.
-
-```html
-<BlazoredToasts Position="ToastPosition.BottomRight"
-                Timeout="10"
-                ShowProgressBar="true" />
-```
+Full examples for client and server-side Blazor are included in the [samples](https://github.com/Chris-Mingay/Toast/tree/master/samples).
 
 ### Remove Toasts When Navigating
 If you wish to clear any visible toasts when the user navigates to a new page you can enable the `RemoveToastsOnNavigation` parameter. Setting this to true will remove any visible toasts whenever the `LocationChanged` event fires.
-
-## FAQ
-### The toasts are not showing
-- Check the `z-index` of your other `DOM Elements`, make sure that the `.blazored-toast-container` has a higher `z-index` than the other components.
-### I upgraded my version of Blazored Toasts and I have errors in my razor file where I declare the BlazoredToasts component.
-- The parameter IconType is a mandatory parameter. An exception will be thrown if any icon is specified.
-- Check the icon parameter names if you have upgraded from a version prior to 2.0.10. Previous to this version the icons supported were specified by class and the parameters were of the form SuccessIconClass. With the addition of Material icon support the parameter form is now simply SuccessIcon.
-
-

@@ -10,11 +10,10 @@ namespace Blazored.Toast.Configuration
     {
         public static ToastOptions Defaults { get; set; } = new ToastOptions();
 
-
         public ToastLevel Level { get; set; } = ToastLevel.Info;
         public ToastPosition Position { get; set; } = ToastPosition.TopRight;
         public string Heading { get; set; }
-        public RenderFragment Message { get; set; }
+        public string Message { get; set; }
         public int Timeout { get; set; } = 5000;
         public Action? OnClick { get; set; }
         public string ButtonLabel { get; set; }
