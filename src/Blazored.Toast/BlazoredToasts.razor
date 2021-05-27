@@ -1,6 +1,6 @@
 ﻿@if (TopLeftList.Any())
 {
-    <div class="fixed left-1 top-1 grid gap-1">
+    <div class="btt-list-t-l">
         <CascadingValue Value=this>
             @foreach (var toast in TopLeftList.OrderBy(x => x.TimeStamp))
             {
@@ -12,7 +12,7 @@
 
 @if (TopCenterList.Any())
 {
-    <div class="fixed top-1 left-1/2 transform -translate-x-1/2 grid gap-1">
+    <div class="btt-list-t-c">
         <CascadingValue Value=this>
             @foreach (var toast in TopCenterList.OrderBy(x => x.TimeStamp))
             {
@@ -24,7 +24,7 @@
 
 @if (TopRightList.Any())
 {
-    <div class="fixed right-1 top-1 grid gap-1">
+    <div class="btt-list-t-r">
         <CascadingValue Value=this>
             @foreach (var toast in TopRightList.OrderBy(x => x.TimeStamp))
             {
@@ -36,7 +36,7 @@
 
 @if (BottomLeftList.Any())
 {
-    <div class="fixed left-1 bottom-1 grid gap-1">
+    <div class="btt-list-b-l">
         <CascadingValue Value=this>
             @foreach (var toast in BottomLeftList.OrderBy(x => x.TimeStamp))
             {
@@ -48,7 +48,7 @@
 
 @if (BottomCenterList.Any())
 {
-    <div class="fixed bottom-1 left-1/2 transform  -translate-x-1/2 grid gap-1">
+    <div class="btt-list-b-c">
         <CascadingValue Value=this>
             @foreach (var toast in BottomCenterList.OrderBy(x => x.TimeStamp))
             {
@@ -60,7 +60,7 @@
 
 @if (BottomRightList.Any())
 {
-    <div class="fixed right-1 bottom-1 grid gap-1">
+    <div class="btt-list-b-r">
         <CascadingValue Value=this>
             @foreach (var toast in BottomRightList.OrderBy(x => x.TimeStamp))
             {

@@ -1,20 +1,20 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
 
-<div class="rounded border @CardClass w-96 relative shadow-lg duration-500 transition-opacity @FadeOutClass flex overflow-hidden"  @onmouseover="OnMouseEnter" @onmouseout="OnMouseLeave">
-    <span class="@CloseButtonClass absolute right-2 top-0 cursor-pointer" @onclick="Close">&times;</span>
-    <div class="flex-1 p-2">
+<div class="btt-card @CardClass @FadeOutClass"  @onmouseover="OnMouseEnter" @onmouseout="OnMouseLeave">
+    <span class="@CloseButtonClass btt-close-button" @onclick="Close">&times;</span>
+    <div class="btt-card-body">
         @if (!string.IsNullOrWhiteSpace(ToastOptions.Heading))
         {
-            <div class="@HeadingClass text-lg font-semibold">@ToastOptions.Heading</div>
+            <div class="btt-card-heading @HeadingClass">@ToastOptions.Heading</div>
         }
-        <div class="@ContentClass text-base font-light">
+        <div class="btt-card-message @ContentClass">
             @ToastOptions.Message
         </div>
     </div>
     @if (ToastOptions.OnClick != null)
     {
-        <div class="w-24 border-l @CardClass p-2 flex flex-col justify-center cursor-pointer" @onclick="PerformActionAndClose">
-            <div class="mx-auto font-medium @ActionButtonClass text-base">@ToastOptions.ButtonLabel</div>
+        <div class="btt-card-action @CardClass " @onclick="PerformActionAndClose">
+            <div class="btt-card-action-text @ActionButtonClass ">@ToastOptions.ButtonLabel</div>
         </div>
     }
 </div>

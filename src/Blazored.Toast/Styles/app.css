@@ -1,0 +1,55 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btt-card {
+    @apply rounded border w-96 relative shadow-lg duration-500 transition-opacity flex overflow-hidden;
+}
+
+.btt-close-button {
+    @apply absolute right-2 top-0 cursor-pointer;
+}
+
+.btt-card-body {
+    @apply flex-1 p-2;
+}
+
+.btt-card-heading {
+    @apply text-lg font-semibold;
+}
+
+.btt-card-action {
+    @apply w-24 border-l p-2 flex flex-col justify-center cursor-pointer;
+}
+
+.btt-card-action-text {
+    @apply mx-auto font-medium text-base;
+}
+
+.btt-card-message {
+    @apply text-base font-light;
+}
+
+.btt-list-t-l {
+    @apply fixed left-1 top-1 grid gap-1;
+}
+
+.btt-list-t-c {
+    @apply fixed top-1 left-1/2 transform -translate-x-1/2 grid gap-1;
+}
+
+.btt-list-t-r {
+    @apply fixed right-1 top-1 grid gap-1;
+}
+
+.btt-list-b-l {
+    @apply fixed left-1 bottom-1 grid gap-1;
+}
+
+.btt-list-b-c {
+    @apply fixed bottom-1 left-1/2 transform -translate-x-1/2 grid gap-1;
+}
+
+.btt-list-b-r {
+    @apply fixed right-1 bottom-1 grid gap-1;
+}

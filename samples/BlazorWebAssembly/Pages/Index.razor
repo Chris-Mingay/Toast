@@ -14,7 +14,7 @@
                 Level
             </label>
             <div class="flex rounded-md shadow-sm col-span-2">
-                <select class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm: border-gray-300 p-2" @bind="Level" required>
+                <select class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm: border-gray-300 p-2" @bind="Level" required>
                     @foreach (var level in Enum.GetValues(typeof(ToastLevel)))
                     {
                         <option value="@level">@level.ToString()</option>
@@ -26,7 +26,7 @@
                 Position
             </label>
             <div class="flex rounded-md shadow-sm col-span-2">
-                <select class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm: border-gray-300 p-2" @bind="Position" required>
+                <select class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm: border-gray-300 p-2" @bind="Position" required>
                     @foreach (var level in Enum.GetValues(typeof(ToastPosition)))
                     {
                         <option value="@level">@level.ToString()</option>
@@ -38,40 +38,43 @@
                 Heading
             </label>
             <div class="flex rounded-md shadow-sm col-span-2">
-                <input type="text" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm: border-gray-300 p-2" @bind="Heading" />
+                <input type="text" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm: border-gray-300 p-2" @bind="Heading" />
             </div>
 
             <label class="block  font-medium text-gray-700 p-2">
                 Message
             </label>
             <div class="flex rounded-md shadow-sm col-span-2">
-                <textarea class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm: border-gray-300 p-2" @bind="Message" required />
+                <textarea class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm: border-gray-300 p-2" @bind="Message" required />
             </div>
 
             <label class="block  font-medium text-gray-700 p-2">
                 Timeout
             </label>
             <div class="flex rounded-md shadow-sm col-span-2">
-                <input type="number" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm: border-gray-300 p-2" @bind="Timeout" required />
+                <input type="number" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-md sm: border-gray-300 p-2" @bind="Timeout" required />
             </div>
 
             <label class="block  font-medium text-gray-700 p-2">
                 Include action
             </label>
-            <div class="flex col-span-2">
-                <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600" @bind="IncludeAction">
+            <div class="flex col-span-2 py-1">
+                <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600 rounded-md border-gray-300" @bind="IncludeAction">
             </div>
 
 
 
         </div>
 
-        <div class="pt-2">
+        <div class="pt-2 flex justify-around">
             <button type="submit" class="inline-flex justify-center p-2 border border-transparent shadow-sm  font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                 Add Modal
             </button>
-            <button type="button" @onclick="AddRandom" class="float-right inline-flex justify-center p-2 border border-transparent shadow-sm  font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button type="button" @onclick="AddRandom" class="inline-flex justify-center p-2 border border-transparent shadow-sm  font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Random
+            </button>
+            <button type="button" @onclick="() => toastService.ShowToast(Message,Heading)" class="inline-flex justify-center p-2 border border-transparent shadow-sm  font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                Simple
             </button>
         </div>
 
