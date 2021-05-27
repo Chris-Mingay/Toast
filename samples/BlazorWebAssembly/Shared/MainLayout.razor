@@ -1,19 +1,9 @@
-@inherits LayoutComponentBase
-@using Blazored.Toast.Configuration
+﻿@inherits LayoutComponentBase
+@using Blazored.Toast.Services
 
-<BlazoredToasts Position="ToastPosition.BottomRight"
-                Timeout="10"
-                IconType="IconType.FontAwesome"
-                SuccessClass="success-toast-override"
-                ErrorIcon="fa fa-bug" 
-                SuccessIcon="fa fa-thumbs-up" />
+<BlazoredToasts DefaultOptions="new Blazored.Toast.Configuration.ToastOptions { Position = ToastPosition.TopCenter }"/>
 
-<div class="sidebar">
-    <NavMenu />
+<div class="min-h-screen bg-gray-200 p-6 flex flex-col justify-center">
+    @Body
 </div>
-
-<div class="main">
-    <div class="content px-4">
-        @Body
-    </div>
-</div>
+    

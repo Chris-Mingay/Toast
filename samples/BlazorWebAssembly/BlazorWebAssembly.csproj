@@ -16,4 +16,10 @@
     <ProjectReference Include="..\..\src\Blazored.Toast\Blazored.Toast.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Shared\MainLayout.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
 </Project>

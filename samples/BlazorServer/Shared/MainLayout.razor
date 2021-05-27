@@ -1,21 +1,9 @@
 ﻿@inherits LayoutComponentBase
-@using Blazored.Toast.Configuration
+@using Blazored.Toast.Services
 
-<BlazoredToasts Position="ToastPosition.BottomRight"
-                Timeout="10"
-                IconType="IconType.Material"
-                ErrorIcon="error_outline"
-                InfoIcon="school"
-                SuccessIcon="done_outline"
-                WarningIcon="warning"
-                ShowProgressBar="@true"/>
+<BlazoredToasts/>
 
-<div class="sidebar">
-    <NavMenu />
+<div class="min-h-screen bg-gray-200 p-6 flex flex-col justify-center">
+    @Body
 </div>
-
-<div class="main">
-    <div class="content px-4">
-        @Body
-    </div>
-</div>
+    

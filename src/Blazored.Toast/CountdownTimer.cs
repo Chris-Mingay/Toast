@@ -9,7 +9,7 @@ namespace Blazored.Toast
     {
         private Timer _timer;
         private int _timeout;
-        private int _countdownTotal;
+        //private int _countdownTotal;
         private int _percentComplete;
 
         internal Action<int> OnTick;
@@ -17,8 +17,8 @@ namespace Blazored.Toast
 
         internal CountdownTimer(int timeout)
         {
-            _countdownTotal = timeout;
-            _timeout = (_countdownTotal * 1000) / 100;
+            _timeout = timeout;
+            //_timeout = (_countdownTotal * 1000) / 100;
             _percentComplete = 0;
             SetupTimer();
         }
@@ -31,24 +31,13 @@ namespace Blazored.Toast
         private void SetupTimer()
         {
             _timer = new Timer(_timeout);
-            _timer.Elapsed += HandleTick;
+            _timer.Elapsed += Elapsed;
             _timer.AutoReset = false;
         }
 
-        private void HandleTick(object sender, ElapsedEventArgs args)
+        private void Elapsed(object sender, ElapsedEventArgs args)
         {
-            _percentComplete++;
-            OnTick?.Invoke(_percentComplete);
-
-            if (_percentComplete == 100)
-            {
-                OnElapsed?.Invoke();
-            }
-            else
-            {
-                SetupTimer();
-                Start();
-            }
+            OnElapsed?.Invoke();
         }
 
         public void Dispose()
