@@ -1,12 +1,12 @@
 {
-  "name": "blazored.toast",
+  "name": "blazor-tailwind-toast",
   "version": "1.0.0",
-  "description": "",
+  "description": "A JavaScript free toast library for Blazor and Razor Component applications using Tailwind.",
   "main": "index.js",
   "scripts": {
     "buildcss": "postcss Styles/app.css -o wwwroot/css/app.min.css"
   },
-  "author": "",
+  "author": "Chris Mingay",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.2.6",

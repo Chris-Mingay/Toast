@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Blazored.Toast.Configuration
+namespace BlazorTailwindToast.Configuration
 {
     internal class ToastInstance
     {

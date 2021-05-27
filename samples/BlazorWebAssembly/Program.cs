@@ -1,4 +1,4 @@
-﻿using Blazored.Toast;
+﻿using BlazorTailwindToast;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using System.Threading.Tasks;
 
@@ -10,7 +10,7 @@ namespace BlazorWebAssembly
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
-            builder.Services.AddBlazoredToast();
+            builder.Services.AddBlazorTailwindToast();
 
             await builder.Build().RunAsync();
         }

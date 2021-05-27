@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Blazored.Toast\Blazored.Toast.csproj" />
+    <ProjectReference Include="..\..\src\BlazorTailwindToast\BlazorTailwindToast.csproj" />
   </ItemGroup>
 
 </Project>

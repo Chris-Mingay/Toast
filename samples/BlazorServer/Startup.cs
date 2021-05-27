@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Blazored.Toast;
+using BlazorTailwindToast;
 
 namespace BlazorServer
 {
@@ -14,7 +14,7 @@ namespace BlazorServer
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddBlazoredToast();
+            services.AddBlazorTailwindToast();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,7 +4,7 @@
 
 <div class="rounded-xl p-4 shadow-xl bg-gray-50 mx-auto w-1/3">
 
-    <h1 class="text-2xl text-gray-800 mb-4">Blazor Toast!</h1>
+    <h1 class="text-2xl text-gray-800 mb-4">Blazor Tailwind Toast</h1>
 
 
     <form @onsubmit="AddModal">
@@ -68,7 +68,7 @@
 
         <div class="pt-2 flex justify-around">
             <button type="submit" class="inline-flex justify-center p-2 border border-transparent shadow-sm  font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                Add Modal
+                Add Toast
             </button>
             <button type="button" @onclick="AddRandom" class="inline-flex justify-center p-2 border border-transparent shadow-sm  font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Random
@@ -96,19 +96,14 @@
         Console.WriteLine($"Toast clicked at {DateTime.Now.ToLongTimeString()}");
     }
 
-    private RenderFragment FragmentFromString(string Input) => builder =>
-    {
-        builder.AddContent(1, Input);
-    };
-
     private void AddModal()
     {
 
-        var options = new Blazored.Toast.Configuration.ToastOptions()
+        var options = new BlazorTailwindToast.Configuration.ToastOptions()
         {
             Level = Level,
             Position = Position,
-            Message = FragmentFromString(Message),
+            Message = Message,
             Heading = Heading,
             Timeout = Timeout
         };
@@ -130,11 +125,11 @@
         var heading = rnd.NextDouble() > 0.5 ? "Lucky heading" : "";
         var message = $"A message with timout of {timeout}ms";
 
-        var options = new Blazored.Toast.Configuration.ToastOptions()
+        var options = new BlazorTailwindToast.Configuration.ToastOptions()
         {
             Level = level,
             Position = position,
-            Message = FragmentFromString(message),
+            Message = message,
             Heading = heading,
             Timeout = timeout
         };

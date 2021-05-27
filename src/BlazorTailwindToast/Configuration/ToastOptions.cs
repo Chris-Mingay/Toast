@@ -1,10 +1,10 @@
-﻿using Blazored.Toast.Enums;
+﻿using BlazorTailwindToast.Enums;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Blazored.Toast.Configuration
+namespace BlazorTailwindToast.Configuration
 {
     public class ToastOptions
     {

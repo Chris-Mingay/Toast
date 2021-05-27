@@ -1,4 +1,4 @@
-namespace Blazored.Toast.Enums
+namespace BlazorTailwindToast.Enums
 {
     public enum ToastPosition
     {

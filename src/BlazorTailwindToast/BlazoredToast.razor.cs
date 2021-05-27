@@ -1,12 +1,12 @@
-﻿using Blazored.Toast.Configuration;
-using Blazored.Toast.Enums;
+﻿using BlazorTailwindToast.Configuration;
+using BlazorTailwindToast.Enums;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace Blazored.Toast
+namespace BlazorTailwindToast
 {
     public partial class BlazoredToast : IDisposable
     {

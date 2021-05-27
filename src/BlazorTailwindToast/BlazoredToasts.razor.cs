@@ -1,6 +1,6 @@
-﻿using Blazored.Toast.Enums;
-using Blazored.Toast.Configuration;
-using Blazored.Toast.Services;
+﻿using BlazorTailwindToast.Enums;
+using BlazorTailwindToast.Configuration;
+using BlazorTailwindToast.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using System;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
 
-namespace Blazored.Toast
+namespace BlazorTailwindToast
 {
 
     public partial class BlazoredToasts
