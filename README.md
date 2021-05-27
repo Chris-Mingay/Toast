@@ -56,33 +56,53 @@ Add the following to your *_Imports.razor*
 @using Blazored.Toast.Enums
 ```
 
-### 3. Register and Configure Toasts Component
+### 3. Register Toasts Component
 Add the `<BlazoredToasts />` tag into your applications *MainLayout.razor*.
 
 
-### 4. Add reference to style sheet(s)
+### 4. Add reference to style sheet
 Add the following line to the `head` tag of your `_Host.cshtml` (Blazor Server app) or `index.html` (Blazor WebAssembly).
 
 For minifed use:
 
 ```
-<link href="_content/Blazored.Toast/app.min.css" rel="stylesheet" />
+<link href="_content/Blazored.Toast/css/app.min.css" rel="stylesheet" />
 ```
 
 The stylesheet `app.min.css` contains only the tailwind styles defined in the build process. It is not required that you reference tailwind in your host project, all styles are self contained.
 
 ## Usage
 
-Toast instances are generated using the `ToastOptions` class which has the following properties:
+Toast instances are configured with the `ToastOptions` class:
 
-- Level, a ToastLevel enum (Info, Success, Error, Warning). Defaults to Info.
-- Position, a ToastPosition enum (TopLeft, TopCenter,TopRight,BottomLeft,BottomCenter,BottomRight). Defaults to TopRight.
-- Heading, an optional heading string.
-- Message, a string or render fragment of the body of the message.
-- Timeout, how long the toast should last in milliseconds. Set to 0 to keep in place until closed. Defaults to 5000 (5 seconds).
-- OnClick, an optional Action that can be used to run functions upon clicking the included action button.
-- ButtonLabel, the label text of the OnClick action.
+```csharp
+public class ToastOptions
+{
+    // The theme to use for this instance
+    public ToastLevel Level { get; set; } = ToastLevel.Info;
 
+    // The position of this instance
+    public ToastPosition Position { get; set; } = ToastPosition.TopRight;
+
+    // An optional heading
+    public string Heading { get; set; }
+
+    // The message body
+    public string Message { get; set; }
+
+    // How long the instance stays on screen in millisends
+    public int Timeout { get; set; } = 5000; // i.e. 5 secods
+
+    // An option on click event can be run
+    public Action? OnClick { get; set; }
+
+    // When an action is provided this is used for the button text.
+    public string ButtonLabel { get; set; }
+
+}
+```
+
+## Code Example
 
 ```html
 @page "/toastdemo"
@@ -103,13 +123,6 @@ Toast instances are generated using the `ToastOptions` class which has the follo
 })">
     ToastOption based
 </button>
-
-
-<button class="btn btn-info" @onclick="@(() => toastService.ShowToast("Standard toast","With heading"))">Standard with heading</button>
-
-<button class="btn btn-success" @onclick="@(() => toastService.ShowSuccess("I'm a SUCCESS message with a custom title", "Congratulations!"))">Success Toast</button>
-<button class="btn btn-warning" @onclick="@(() => toastService.ShowWarning("I'm a WARNING message"))">Warning Toast</button>
-<button class="btn btn-danger" @onclick="@(() => toastService.ShowError("I'm an ERROR message"))">Error Toast</button>
 ```
 Full examples for client and server-side Blazor are included in the [samples](https://github.com/Chris-Mingay/Toast/tree/master/samples).
 
