@@ -19,11 +19,9 @@ namespace BlazorTailwindToast
         private string HeadingClass { get; set; } = "text-gray-800";
         private string CloseButtonClass { get; set; } = "text-gray-400";
         private string ContentClass { get; set; } = "text-gray-600";
-        private string FadeOutClass { get; set; } = "opacity-1";
         public string ActionButtonClass { get; set; } = "text-indigo-500";
 
         private Timer _countdownTimer;
-        private Timer _fadeCountdownTimer;
 
         protected override void OnInitialized()
         {
@@ -60,18 +58,6 @@ namespace BlazorTailwindToast
                 _countdownTimer.Start();
             }
 
-            if (ToastOptions.Timeout > 500)
-            {
-                _fadeCountdownTimer = new Timer(ToastOptions.Timeout - 500);
-                _fadeCountdownTimer.Elapsed += (s,e) =>
-                {
-                    FadeOutClass = "opacity-0";
-                    InvokeAsync(() => StateHasChanged());
-                };
-                _fadeCountdownTimer.Start();
-            }
-
-
         }
 
         private void Close()
@@ -93,26 +79,16 @@ namespace BlazorTailwindToast
                 _countdownTimer = null;
             }
 
-            if (_fadeCountdownTimer != null)
-            {
-                _fadeCountdownTimer.Dispose();
-                _fadeCountdownTimer = null;
-            }
-
         }
 
         private async Task OnMouseEnter()
         {
             if (_countdownTimer != null) _countdownTimer.Stop();
-            if (_fadeCountdownTimer != null) _fadeCountdownTimer.Stop();
-                
         }
 
         private async Task OnMouseLeave()
         {
             if (_countdownTimer != null) _countdownTimer.Start();
-            if (_fadeCountdownTimer != null) _fadeCountdownTimer.Start();
-            
         }
 
     }

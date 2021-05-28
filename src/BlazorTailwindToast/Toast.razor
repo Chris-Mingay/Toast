@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
 
-<div class="btt-card @CardClass @FadeOutClass"  @onmouseover="OnMouseEnter" @onmouseout="OnMouseLeave">
+<div class="btt-card @CardClass scale-up-center"  @onmouseover="OnMouseEnter" @onmouseout="OnMouseLeave">
     <span class="@CloseButtonClass btt-close-button" @onclick="Close">&times;</span>
     <div class="btt-card-body">
         @if (!string.IsNullOrWhiteSpace(ToastOptions.Heading))
