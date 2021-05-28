@@ -11,7 +11,7 @@ using System.Timers;
 namespace BlazorTailwindToast
 {
 
-    public partial class BlazoredToasts
+    public partial class Toaster
     {
         [Inject] private IToastService ToastService { get; set; }
         [Inject] private NavigationManager NavigationManager { get; set; }

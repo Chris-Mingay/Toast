@@ -4,7 +4,7 @@
         <CascadingValue Value=this>
             @foreach (var toast in TopLeftList.OrderBy(x => x.TimeStamp))
             {
-                <BlazoredToast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
+                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
             }
         </CascadingValue>
     </div>
@@ -16,7 +16,7 @@
         <CascadingValue Value=this>
             @foreach (var toast in TopCenterList.OrderBy(x => x.TimeStamp))
             {
-                <BlazoredToast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
+                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
             }
         </CascadingValue>
     </div>
@@ -28,7 +28,7 @@
         <CascadingValue Value=this>
             @foreach (var toast in TopRightList.OrderBy(x => x.TimeStamp))
             {
-                <BlazoredToast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
+                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
             }
         </CascadingValue>
     </div>
@@ -40,7 +40,7 @@
         <CascadingValue Value=this>
             @foreach (var toast in BottomLeftList.OrderBy(x => x.TimeStamp))
             {
-                <BlazoredToast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
+                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
             }
         </CascadingValue>
     </div>
@@ -52,7 +52,7 @@
         <CascadingValue Value=this>
             @foreach (var toast in BottomCenterList.OrderBy(x => x.TimeStamp))
             {
-                <BlazoredToast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
+                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
             }
         </CascadingValue>
     </div>
@@ -64,7 +64,7 @@
         <CascadingValue Value=this>
             @foreach (var toast in BottomRightList.OrderBy(x => x.TimeStamp))
             {
-                <BlazoredToast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
+                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
             }
         </CascadingValue>
     </div>

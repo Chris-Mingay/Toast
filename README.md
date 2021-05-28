@@ -18,17 +18,17 @@ This project is a fork of [Blazored.Toast](https://github.com/Blazored/Toast) wi
 ~~You can install the package via the NuGet package manager just search for *Blazored.Toast*. You can also install via powershell using the following command.~~
 
 ```powershell
-Install-Package NotYet.Toast
+Install-Package ChrisMingay.BlazorTailwindToast
 ```
 
 ~~Or via the dotnet CLI~~
 
 ```bash
-dotnet add package NotYet.Toast
+dotnet add package ChrisMingay.BlazorTailwindToast
 ```
 
 ### 1. Register Services
-You will need to register the Blazored Toast service in your application
+You will need to register the Toast service in your application
 
 #### Blazor Server
 Add the following line to your applications `Startup.ConfigureServices` method.
@@ -36,7 +36,7 @@ Add the following line to your applications `Startup.ConfigureServices` method.
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddBlazoredToast();
+    services.AddBlazorTailwindToast();
 }
 ```
 
@@ -44,7 +44,7 @@ public void ConfigureServices(IServiceCollection services)
 Add the following line to your applications `Program.Main` method.
 
 ```csharp
-builder.Services.AddBlazoredToast();
+builder.Services.AddBlazorTailwindToast();
 ```
 
 ### 2. Add Imports
@@ -57,7 +57,7 @@ Add the following to your *_Imports.razor*
 ```
 
 ### 3. Register Toasts Component
-Add the `<BlazoredToasts />` tag into your applications *MainLayout.razor*.
+Add the `<Toaster />` tag into your applications *MainLayout.razor*.
 
 
 ### 4. Add reference to style sheet
@@ -66,7 +66,7 @@ Add the following line to the `head` tag of your `_Host.cshtml` (Blazor Server a
 For minifed use:
 
 ```
-<link href="_content/Blazored.Toast/css/app.min.css" rel="stylesheet" />
+<link href="_content/ChrisMingay.BlazorTailwindToast/app.min.css" rel="stylesheet" />
 ```
 
 The stylesheet `app.min.css` contains only the tailwind styles defined in the build process. It is not required that you reference tailwind in your host project, all styles are self contained.

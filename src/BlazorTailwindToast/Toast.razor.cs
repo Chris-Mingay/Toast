@@ -8,9 +8,9 @@ using System.Timers;
 
 namespace BlazorTailwindToast
 {
-    public partial class BlazoredToast : IDisposable
+    public partial class Toast : IDisposable
     {
-        [CascadingParameter] private BlazoredToasts ToastsContainer { get; set; }
+        [CascadingParameter] private Toaster ToastsContainer { get; set; }
 
         [Parameter] public Guid ToastId { get; set; }
         [Parameter] public ToastOptions ToastOptions { get; set; }
