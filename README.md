@@ -111,11 +111,11 @@ public class ToastOptions
 
 <h1>Toast Demo</h1>
 
-<button type="button" @onclick='() => toastService.ShowToast("Message","Heading")'>
+<button style="padding: 10px; margin: 10px; border: 1px solid #ccc" type="button" @onclick='() => toastService.ShowToast("Message","Heading")'>
     Inline message and heading
 </button>
 
-<button type="button" @onclick='() => toastService.ShowToast(new ToastOptions(){
+<button style="padding: 10px; margin: 10px; border: 1px solid #ccc" type="button" @onclick='() => toastService.ShowToast(new ToastOptions(){
     Message = " Toast option based message",
         Heading=null,
         Timeout=10000,
