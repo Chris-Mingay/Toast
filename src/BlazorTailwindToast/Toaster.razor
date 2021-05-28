@@ -1,71 +1,73 @@
-﻿@if (TopLeftList.Any())
-{
-    <div class="btt-list-t-l">
-        <CascadingValue Value=this>
-            @foreach (var toast in TopLeftList.OrderBy(x => x.TimeStamp))
-            {
-                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
-            }
-        </CascadingValue>
-    </div>
-}
+﻿<div class="btt-toaster">
+    @if (TopLeftList.Any())
+    {
+        <div class="btt-list-t-l">
+            <CascadingValue Value=this>
+                @foreach (var toast in TopLeftList.OrderBy(x => x.TimeStamp))
+                {
+                    <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
+                }
+            </CascadingValue>
+        </div>
+    }
 
-@if (TopCenterList.Any())
-{
-    <div class="btt-list-t-c">
-        <CascadingValue Value=this>
-            @foreach (var toast in TopCenterList.OrderBy(x => x.TimeStamp))
-            {
-                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
-            }
-        </CascadingValue>
-    </div>
-}
+    @if (TopCenterList.Any())
+    {
+        <div class="btt-list-t-c">
+            <CascadingValue Value=this>
+                @foreach (var toast in TopCenterList.OrderBy(x => x.TimeStamp))
+                {
+                    <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
+                }
+            </CascadingValue>
+        </div>
+    }
 
-@if (TopRightList.Any())
-{
-    <div class="btt-list-t-r">
-        <CascadingValue Value=this>
-            @foreach (var toast in TopRightList.OrderBy(x => x.TimeStamp))
-            {
-                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
-            }
-        </CascadingValue>
-    </div>
-}
+    @if (TopRightList.Any())
+    {
+        <div class="btt-list-t-r">
+            <CascadingValue Value=this>
+                @foreach (var toast in TopRightList.OrderBy(x => x.TimeStamp))
+                {
+                    <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
+                }
+            </CascadingValue>
+        </div>
+    }
 
-@if (BottomLeftList.Any())
-{
-    <div class="btt-list-b-l">
-        <CascadingValue Value=this>
-            @foreach (var toast in BottomLeftList.OrderBy(x => x.TimeStamp))
-            {
-                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
-            }
-        </CascadingValue>
-    </div>
-}
+    @if (BottomLeftList.Any())
+    {
+        <div class="btt-list-b-l">
+            <CascadingValue Value=this>
+                @foreach (var toast in BottomLeftList.OrderBy(x => x.TimeStamp))
+                {
+                    <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
+                }
+            </CascadingValue>
+        </div>
+    }
 
-@if (BottomCenterList.Any())
-{
-    <div class="btt-list-b-c">
-        <CascadingValue Value=this>
-            @foreach (var toast in BottomCenterList.OrderBy(x => x.TimeStamp))
-            {
-                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
-            }
-        </CascadingValue>
-    </div>
-}
+    @if (BottomCenterList.Any())
+    {
+        <div class="btt-list-b-c">
+            <CascadingValue Value=this>
+                @foreach (var toast in BottomCenterList.OrderBy(x => x.TimeStamp))
+                {
+                    <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
+                }
+            </CascadingValue>
+        </div>
+    }
 
-@if (BottomRightList.Any())
-{
-    <div class="btt-list-b-r">
-        <CascadingValue Value=this>
-            @foreach (var toast in BottomRightList.OrderBy(x => x.TimeStamp))
-            {
-                <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id"/>
-            }
-        </CascadingValue>
-    </div>
-}
+    @if (BottomRightList.Any())
+    {
+        <div class="btt-list-b-r">
+            <CascadingValue Value=this>
+                @foreach (var toast in BottomRightList.OrderBy(x => x.TimeStamp))
+                {
+                    <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
+                }
+            </CascadingValue>
+        </div>
+    }
+</div>

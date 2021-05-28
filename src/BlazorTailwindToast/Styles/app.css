@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.btt-card {
+.btt-toaster {
+    z-index: 1;
+}
+
+.btt-toast {
     @apply rounded border w-96 relative shadow-lg flex overflow-hidden;
 }
 
