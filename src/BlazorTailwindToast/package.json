@@ -4,7 +4,7 @@
   "description": "A JavaScript free toast library for Blazor and Razor Component applications using Tailwind.",
   "main": "index.js",
   "scripts": {
-    "buildcss": "postcss Styles/app.css -o wwwroot/css/app.min.css"
+    "buildcss": "postcss Styles/app.css -o wwwroot/app.min.css"
   },
   "author": "Chris Mingay",
   "license": "ISC",
