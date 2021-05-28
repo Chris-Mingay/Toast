@@ -15,13 +15,13 @@ This project is a fork of [Blazored.Toast](https://github.com/Blazored/Toast) wi
 
 ## Getting Setup
 
-~~You can install the package via the NuGet package manager just search for *Blazored.Toast*. You can also install via powershell using the following command.~~
+You can install the package via the NuGet package manager just search for *Blazored.Toast*. You can also install via powershell using the following command.
 
 ```powershell
 Install-Package ChrisMingay.BlazorTailwindToast
 ```
 
-~~Or via the dotnet CLI~~
+Or via the dotnet CLI
 
 ```bash
 dotnet add package ChrisMingay.BlazorTailwindToast
