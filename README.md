@@ -51,9 +51,9 @@ builder.Services.AddBlazorTailwindToast();
 Add the following to your *_Imports.razor*
 
 ```csharp
-@using Blazored.Toast
-@using Blazored.Toast.Services
-@using Blazored.Toast.Enums
+@using BlazorTailwindToast.Toast
+@using BlazorTailwindToast.Toast.Services
+@using BlazorTailwindToast.Toast.Enums
 ```
 
 ### 3. Register Toasts Component
