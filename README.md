@@ -54,6 +54,7 @@ Add the following to your *_Imports.razor*
 @using BlazorTailwindToast
 @using BlazorTailwindToast.Services
 @using BlazorTailwindToast.Enums
+@using BlazorTailwindToast.Configuration
 ```
 
 ### 3. Register Toasts Component
@@ -110,17 +111,17 @@ public class ToastOptions
 
 <h1>Toast Demo</h1>
 
-<button type="button" @onclick="() => toastService.ShowToast("Message","Heading")">
+<button type="button" @onclick='() => toastService.ShowToast("Message","Heading")'>
     Inline message and heading
 </button>
 
-<button type="button" @onclick="() => toastService.ShowToast(new ToastOption{
-    Message = "Toast option based message",
-    Heading = null,
-    Timeout = 10000,
-    Level = ToastLevel.Error,
-    Position = ToastPosition.BottomCenter
-})">
+<button type="button" @onclick='() => toastService.ShowToast(new ToastOptions(){
+    Message = " Toast option based message",
+        Heading=null,
+        Timeout=10000,
+        Level=ToastLevel.Error,
+        Position=ToastPosition.BottomCenter
+        })'>
     ToastOption based
 </button>
 ```
