@@ -20,6 +20,7 @@ namespace BlazorTailwindToast
         private string CloseButtonClass { get; set; } = "text-gray-400";
         private string ContentClass { get; set; } = "text-gray-600";
         public string ActionButtonClass { get; set; } = "text-indigo-500";
+        public string AnimationClass { get; set; } = "scale-up-center";
 
         private Timer _countdownTimer;
 
@@ -48,6 +49,16 @@ namespace BlazorTailwindToast
                     CloseButtonClass = "text-yellow-800";
                     ContentClass = "text-yellow-100";
                     ActionButtonClass = "text-white";
+                    break;
+            }
+
+            switch(ToastOptions.Position)
+            {
+                case ToastPosition.TopBanner:
+                    AnimationClass = "slide-from-top";
+                    break;
+                case ToastPosition.BottomBanner:
+                    AnimationClass = "slide-from-bottom";
                     break;
             }
 

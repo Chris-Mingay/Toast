@@ -70,4 +70,26 @@
             </CascadingValue>
         </div>
     }
+    @if (TopList.Any())
+    {
+        <div class="btt-list-t btt-banner">
+            <CascadingValue Value=this>
+                @foreach (var toast in TopList.OrderBy(x => x.TimeStamp))
+                {
+                    <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
+                }
+            </CascadingValue>
+        </div>
+    }
+    @if (BottomList.Any())
+    {
+        <div class="btt-list-b btt-banner">
+            <CascadingValue Value=this>
+                @foreach (var toast in BottomList.OrderBy(x => x.TimeStamp))
+                {
+                    <Toast @key="toast" ToastOptions="toast.ToastOptions" ToastId="toast.Id" />
+                }
+            </CascadingValue>
+        </div>
+    }
 </div>

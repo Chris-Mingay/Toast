@@ -12,6 +12,10 @@ This project is a fork of [Blazored.Toast](https://github.com/Blazored/Toast) wi
 - Hover pauses the timeout
 - Toast content has to be a string (for now), whereas Blazored Toast lets you send a RenderFragment
 
+## Change Log
+
+You can view the change log [HERE](CHANGELOG.md).
+
 
 ## Getting Setup
 

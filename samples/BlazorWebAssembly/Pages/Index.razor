@@ -120,7 +120,7 @@
     private void AddRandom()
     {
         var level = (ToastLevel)rnd.Next(4);
-        var position = (ToastPosition)rnd.Next(6);
+        var position = (ToastPosition)rnd.Next(8);
         var timeout = 1000 + rnd.Next(4000);
         var heading = rnd.NextDouble() > 0.5 ? "Lucky heading" : "";
         var message = $"A message with timout of {timeout}ms";

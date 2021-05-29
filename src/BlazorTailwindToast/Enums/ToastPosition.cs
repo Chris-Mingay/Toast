@@ -8,5 +8,7 @@ namespace BlazorTailwindToast.Enums
         BottomLeft,
         BottomCenter,
         BottomRight,
+        TopBanner,
+        BottomBanner
     }
 }

@@ -25,20 +25,24 @@ namespace BlazorTailwindToast
         internal List<ToastInstance> BottomLeftList { get; set; } = new List<ToastInstance>();
         internal List<ToastInstance> BottomCenterList { get; set; } = new List<ToastInstance>();
         internal List<ToastInstance> BottomRightList { get; set; } = new List<ToastInstance>();
+        internal List<ToastInstance> TopList { get; set; } = new List<ToastInstance>();
+        internal List<ToastInstance> BottomList { get; set; } = new List<ToastInstance>();
 
         internal List<ToastInstance>[] AllLists { get; set; } = new List<ToastInstance>[0];
 
         protected override void OnInitialized()
         {
 
-            AllLists = new List<ToastInstance>[6]
+            AllLists = new List<ToastInstance>[8]
             {
                 TopLeftList,
                 TopCenterList,
                 TopRightList,
                 BottomLeftList,
                 BottomCenterList,
-                BottomRightList
+                BottomRightList,
+                TopList,
+                BottomList
             };
 
             ToastService.OnShow += ShowToast;
